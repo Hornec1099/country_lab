@@ -3,12 +3,13 @@ import CountryList from '../components/CountryList';
 import CountryDetail from '../components/CountryDetail';
 import './CountryContainer.css';
 import Dropdown from '../components/CountryDropdown';
+import FavouriteCountries from '../components/FavouriteCountries';
 
 const CountryContainer = () => {
 
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
-    const [faveCountry, setFaveCountry] = useState(" ");
+    const [faveCountries, setFaveCountries] = useState([]);
     
     useEffect( () => {
         getCountries()
@@ -25,8 +26,8 @@ const CountryContainer = () => {
     };
 
     const SelectedCountry = (country) => {
-
-        setFaveCountry(country)
+        
+        setFaveCountries([...faveCountries, country])
 
     }
     const totalPopulation = countries.reduce( (total,country) =>  {
@@ -40,6 +41,7 @@ const CountryContainer = () => {
         <p > Population Total : {totalPopulation}</p>
         <Dropdown   SelectedCountry = {SelectedCountry} countries = {countries} />
         <CountryDetail selectedCountry = {selectedCountry} />
+        <FavouriteCountries faveCountries = {faveCountries}/>
         </div>
         <CountryList countries ={countries} onCountryClick ={onCountryClick} />
         </div>

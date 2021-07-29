@@ -10,7 +10,8 @@ const CountryDetail = ({ selectedCountry}) => {
     return (
 
         <div>
-            <h1> {selectedCountry.name}</h1>
+            <h1>Here is the Selected Country</h1>
+            <h3> {selectedCountry.name}</h3>
             <ul>
                 <li> Population : {selectedCountry.population}</li>
                 <li> Capital : {selectedCountry.capital}</li>
