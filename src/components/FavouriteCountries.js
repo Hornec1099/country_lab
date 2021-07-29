@@ -8,11 +8,12 @@ const FavouriteCountries = ({faveCountries}) => {
     
 
     return (
-
-        <ul>
-           {faveList}
-        </ul>
-        
+        <section>
+            <h3> Favourite Countries</h3>
+            <ul>
+                {faveList}
+            </ul>
+        </section>
     )
 }
 

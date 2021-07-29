@@ -38,12 +38,14 @@ const CountryContainer = () => {
     return (
         <div className = "main-container">
             <div>
-        <p > Population Total : {totalPopulation}</p>
-        <Dropdown   SelectedCountry = {SelectedCountry} countries = {countries} />
-        <CountryDetail selectedCountry = {selectedCountry} />
-        <FavouriteCountries faveCountries = {faveCountries}/>
-        </div>
-        <CountryList countries ={countries} onCountryClick ={onCountryClick} />
+                <p>Population Total : {totalPopulation}</p>
+                <h3>Choose Favourite Country</h3>
+                <Dropdown   SelectedCountry = {SelectedCountry} countries = {countries} />
+                <FavouriteCountries faveCountries = {faveCountries}/>
+                <CountryDetail selectedCountry = {selectedCountry} />
+                
+            </div>
+            <CountryList countries ={countries} onCountryClick ={onCountryClick} />
         </div>
     )
 };
