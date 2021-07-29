@@ -1,21 +1,26 @@
 import React from 'react'
 
 
-const Dropdown = ({countries, onSelectedCountry}) => {
+const Dropdown = ({countries, SelectedCountry}) => {
 
-    const handleSelection = (country) => {
+    const handleChange = (event) => {
 
-        console.log(country)
+        SelectedCountry(event.target.value)
     };
 
     const countryNames = countries.map((country) => {
-       return <option value = "{country}"    onSelect = {handleSelection(country)}>  {country.name}</option>
+       return <option value = "{country}"    onChange = {handleChange(country)}>  {country.name}</option>
     })
 
 
     return (
-    <select >
-        {countryNames}
+    <select defaultValue = "" onChange ={handleChange}>
+        <option value ="" disable > chooseCountry</option>
+        {countries.map((country) => {
+            return (
+                <option key = {country.alpha3Code} > {country.name} </option>
+            )
+        })}
     </select>
         
     )

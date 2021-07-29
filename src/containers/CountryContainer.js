@@ -8,7 +8,7 @@ const CountryContainer = () => {
 
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
-    const [faveCountry, setFaveCountry] = useState([]);
+    const [faveCountry, setFaveCountry] = useState(" ");
     
     useEffect( () => {
         getCountries()
@@ -24,9 +24,9 @@ const CountryContainer = () => {
         setSelectedCountry(country);
     };
 
-    const onSelectedCountry = (country) => {
+    const SelectedCountry = (country) => {
 
-        faveCountry.push(country)
+        setFaveCountry(country)
 
     }
     const totalPopulation = countries.reduce( (total,country) =>  {
@@ -35,10 +35,10 @@ const CountryContainer = () => {
 
 
     return (
-        <div class = "main-container">
+        <div className = "main-container">
             <div>
         <p > Population Total : {totalPopulation}</p>
-        <Dropdown   onSelectedCountry = {onSelectedCountry} countries = {countries} />
+        <Dropdown   SelectedCountry = {SelectedCountry} countries = {countries} />
         <CountryDetail selectedCountry = {selectedCountry} />
         </div>
         <CountryList countries ={countries} onCountryClick ={onCountryClick} />
