@@ -3,13 +3,12 @@ import Country from "./Country"
 
 const CountryList = ({countries , onCountryClick}) => {
 
-    const listOfCountries = countries.map((country) => {
-        return < Country country = {country} onCountryClick ={onCountryClick}/>
+    const listOfCountries = countries.map((country,index) => {
+        return < Country country = {country} key ={index} onCountryClick ={onCountryClick} />
     })
 
     return (
         <div>
-        <p> this is the list</p>
         <ul>
         {listOfCountries}
         </ul>
